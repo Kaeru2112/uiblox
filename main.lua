@@ -1,22 +1,18 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Kaeru Hub | Blox Fruits", HidePremium = false, SaveConfig = true, ConfigFolder = "KaeruConfig"})
+-- Gọi thư viện từ link Raw của chính bạn
+local MyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaeru2112/uiblox/main/library.lua"))()
 
-local Tab = Window:MakeTab({
-    Name = "Chính",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+-- Tạo cửa sổ
+local Screen = MyLibrary:CreateWindow("KAERU SELF-MADE UI")
 
-Tab:AddButton({
-    Name = "Kiểm tra Script",
-    Callback = function()
-              OrionLib:MakeNotification({
-            Name = "Thành công!",
-            Content = "Giao diện đã chạy bằng link Raw của bạn",
-            Image = "rbxassetid://4483345998",
-            Time = 5
-        })
-      end    
-})
+-- Thêm các nút bấm
+Screen:CreateButton("Bật WalkSpeed (100)", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
 
-OrionLib:Init()
+Screen:CreateButton("Hồi máu (Reset)", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+
+Screen:CreateButton("Thông báo Test", function()
+    print("Nút tự chế đã hoạt động!")
+end)
