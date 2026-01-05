@@ -1,19 +1,16 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Kaeru Hub", HidePremium = false, SaveConfig = true})
 
-local Window = OrionLib:MakeWindow({Name = "Blox Fruits Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-
--- Tạo một Tab mới
-local MainTab = Window:MakeTab({
-    Name = "Trang chính",
+local Tab = Window:MakeTab({
+    Name = "Main",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
--- Tạo một Nút (Button)
-MainTab:AddButton({
-    Name = "Auto Farm (Ví dụ)",
+Tab:AddButton({
+    Name = "Test UI",
     Callback = function()
-              print("Đã kích hoạt Auto Farm!")
+              OrionLib:MakeNotification({Name = "Thành công!", Content = "UI của bạn đã hoạt động", Image = "rbxassetid://4483345998", Time = 5})
       end    
 })
 
